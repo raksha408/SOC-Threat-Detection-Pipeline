@@ -3,6 +3,19 @@
 
 ---
 
+## 📸 Project Screenshots
+
+### 1. Live SIEM Detection Rule (Splunk)
+![Splunk Alert Rule](Screenshots/splunk_alert_rule.png)
+
+### 2. CSPM Alert Ingested & Triaged in Splunk
+![Splunk Search Results](Screenshots/splunk_search_results.png)
+
+### 3. Python SOAR Enrichment Output (VirusTotal API)
+![SOAR Output](Screenshots/soar_output.png)
+
+---
+
 ## 📋 Project Overview
 
 This project simulates an **end-to-end enterprise Security Operations Center (SOC) workflow**, covering the full lifecycle from cloud vulnerability detection to incident containment and postmortem. It is designed to demonstrate the skills required for **SOC Analyst I, II, and III** roles.
