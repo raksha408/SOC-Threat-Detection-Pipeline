@@ -1,9 +1,17 @@
-# 🛡️ Cloud-Native Threat Detection & Automated Response Pipeline
+#  Cloud-Native Threat Detection & Automated Response Pipeline
 ### A Real-World SOC Analyst Portfolio Project
 
 ---
 
-## 📸 Project Screenshots
+##  Project Overview
+
+This project simulates an **end-to-end enterprise Security Operations Center (SOC) workflow**, covering the full lifecycle from cloud vulnerability detection to incident containment and postmortem. It is designed to demonstrate the skills required for **SOC Analyst I, II, and III** roles.
+
+**Scenario:** An exposed cloud virtual machine (misconfigured RDP port open to the internet) is detected by a CSPM tool. A threat actor exploits the exposure to launch a brute-force attack. The SOC detects, investigates, enriches, contains, and documents the incident.
+
+---
+
+##  Project Screenshots
 
 ### 1. Live SIEM Detection Rule (Splunk)
 ![Splunk Alert Rule](Screenshots/splunk_alert_rule.png)
@@ -14,19 +22,10 @@
 ### 3. Python SOAR Enrichment Output (VirusTotal API)
 ![SOAR Output](Screenshots/soar_output.png)
 
----
-
-## 📋 Project Overview
-
-This project simulates an **end-to-end enterprise Security Operations Center (SOC) workflow**, covering the full lifecycle from cloud vulnerability detection to incident containment and postmortem. It is designed to demonstrate the skills required for **SOC Analyst I, II, and III** roles.
-
-**Scenario:** An exposed cloud virtual machine (misconfigured RDP port open to the internet) is detected by a CSPM tool. A threat actor exploits the exposure to launch a brute-force attack. The SOC detects, investigates, enriches, contains, and documents the incident.
-
----
-
-## 🏗️ Architecture
+##  Architecture
 
 ```
+
 [CSPM Alert (Wiz Mock)] → [SIEM Ingestion (Splunk)] → [Detection Rule Fires]
                                                               ↓
                                               [SOAR Enrichment (Python + VirusTotal API)]
@@ -38,7 +37,7 @@ This project simulates an **end-to-end enterprise Security Operations Center (SO
 
 ---
 
-## 🗂️ Project Structure
+##  Project Structure
 
 ```
 SOC_Pipeline_Project/
@@ -59,7 +58,7 @@ SOC_Pipeline_Project/
 
 ---
 
-## 🔧 Tech Stack
+##  Tech Stack
 
 | Tool | Purpose |
 |---|---|
@@ -72,7 +71,7 @@ SOC_Pipeline_Project/
 
 ---
 
-## 🚀 Key Outcomes
+##  Key Outcomes
 
 - ✅ **Detection Engineering:** Built a live Splunk alert rule firing on CRITICAL CSPM events.
 - ✅ **Threat Hunting:** Authored KQL queries to detect RDP brute-force and obfuscated PowerShell execution.
@@ -82,7 +81,7 @@ SOC_Pipeline_Project/
 
 ---
 
-## 🎯 Skills Demonstrated (Mapped to JD)
+##  Skills Demonstrated (Mapped to JD)
 
 | JD Requirement | Project Evidence |
 |---|---|
@@ -96,10 +95,16 @@ SOC_Pipeline_Project/
 
 ---
 
-## ▶️ How to Run
+## How to Run
 
 1. Clone this repository.
 2. Install dependencies: `pip install requests`
 3. Add your free VirusTotal API key to `Automation/vt_enrichment.py`.
 4. Run the enrichment playbook: `python Automation/vt_enrichment.py <suspicious_ip>`
 5. For SIEM demo, import `Mock_Data/wiz_alert.json` into Splunk via **Add Data → Upload**.
+
+  ---
+
+  ## Author
+  Shriraksha Kulkarni
+
