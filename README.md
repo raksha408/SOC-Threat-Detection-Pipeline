@@ -5,7 +5,7 @@
 
 ##  Project Overview
 
-This project simulates an **end-to-end enterprise Security Operations Center (SOC) workflow**, covering the full lifecycle from cloud vulnerability detection to incident containment and postmortem. It is designed to demonstrate the skills required for **SOC Analyst I, II, and III** roles.
+This project simulates an **end-to-end enterprise Security Operations Center (SOC) workflow**, covering the full lifecycle from cloud vulnerability detection to incident containment and postmortem. 
 
 **Scenario:** An exposed cloud virtual machine (misconfigured RDP port open to the internet) is detected by a CSPM tool. A threat actor exploits the exposure to launch a brute-force attack. The SOC detects, investigates, enriches, contains, and documents the incident.
 
