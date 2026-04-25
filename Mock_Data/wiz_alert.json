@@ -1,0 +1,12 @@
+{
+  "alertId": "WIZ-AL-2024-99812",
+  "severity": "CRITICAL",
+  "status": "OPEN",
+  "title": "Virtual Machine has Port 3389 (RDP) open to the Internet (0.0.0.0/0)",
+  "description": "The Network Security Group (NSG) attached to the VM allows unrestricted inbound access on port 3389. This poses a high risk of brute-force attacks and ransomware deployment.",
+  "cloudProvider": "Azure",
+  "resourceType": "Virtual Machine",
+  "resourceName": "Prod-Web-Server-01",
+  "timestamp": "2024-10-25T08:15:00Z",
+  "remediation": "Restrict inbound traffic on port 3389 to known, trusted IP addresses or implement Just-In-Time (JIT) VM access."
+}

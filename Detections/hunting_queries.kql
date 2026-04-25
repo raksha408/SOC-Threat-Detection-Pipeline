@@ -1,0 +1,26 @@
+// 1. Detection: High Volume of Failed RDP Logns (Brute Force Simulation)
+// Real-world scenario: Attackers scanning the 0.0.0.0/0 exposed port from the Wiz alert.
+SecurityEvent 
+| where EventID == 4625 // Failed Logon
+| where LogonType == 10 // Remote Interactive (RDP)
+| summarize FailedCount = count() by TargetUserName, IpAddress, bin(TimeGenerated, 10m)
+| where FailedCount > 10
+| project TimeGenerated, TargetUserName, IpAddress, FailedCount
+| order by FailedCount desc
+
+// 2. Detection: Suspicious Encoded PowerShell Execution
+// Real-world scenario: Once logged in, attacker downloads payload via base64 powershell.
+Sysmon_Event_Parser
+| where EventID == 1 // Process Creation
+| where ProcessName =~ "powershell.exe"
+| where CommandLine contains "-enc" or CommandLine contains "-EncodedCommand"
+| extend Base64Payload = extract(@"-e(?:nc(?:odedcommand)?)?\s+([A-Za-z0-9+/=]+)", 1, CommandLine)
+| project TimeGenerated, Computer, User, CommandLine, Base64Payload
+
+// 3. Detection: PowerShell making unexpected external network connections
+// Real-world scenario: The executed script reaches out to a C2 server.
+Sysmon_Event_Parser
+| where EventID == 3 // Network Connection
+| where Image ends_with "powershell.exe"
+| where DestinationIp != "127.0.0.1" // Exclude loopback
+| project TimeGenerated, Computer, User, DestinationIp, DestinationPort

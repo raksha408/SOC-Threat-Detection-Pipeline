@@ -1,0 +1,13 @@
+# Never commit secrets or local environment files
+.env
+*.env
+secrets.txt
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# OS junk
+.DS_Store
+Thumbs.db
